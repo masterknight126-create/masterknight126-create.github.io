@@ -6,7 +6,7 @@
   <title>John | IT Expert Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ---------- GLOBAL RESET & VARIABLES ---------- */
+    /* ---------- RESET & VARIABLES ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -15,357 +15,458 @@
     }
 
     :root {
-      --bg-dark: #0d1b2a;
-      --bg-mid: #1b2a3a;
-      --bg-light: #243b4a;
-      --accent: #1abc9c;
-      --accent-glow: #16a085;
-      --text-light: #f0f4f8;
-      --text-muted: #b0c4d8;
-      --card-bg: #1e2f3f;
-      --shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      --radius: 12px;
+      --navy: #0b1a2b;
+      --navy-light: #122b40;
+      --teal: #1abc9c;
+      --teal-dark: #16a085;
+      --teal-glow: rgba(26, 188, 156, 0.25);
+      --text: #eef4fa;
+      --text-soft: #b8ccdd;
+      --card: #132f41;
+      --card-hover: #1a3a50;
+      --border: rgba(26, 188, 156, 0.2);
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(135deg, #0b1725, #1b2f45);
-      color: var(--text-light);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      background: linear-gradient(160deg, #0a1624 0%, #122b40 100%);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---------- SCROLLBAR ---------- */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--navy);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--teal);
+      border-radius: 10px;
     }
 
     /* ---------- HEADER ---------- */
     header {
-      background: var(--bg-dark);
-      padding: 16px 8%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 14px 6%;
+      background: rgba(11, 26, 43, 0.95);
+      backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-      border-bottom: 1px solid rgba(26, 188, 156, 0.2);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     header h1 {
-      font-size: 1.7rem;
-      color: var(--accent);
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--teal);
+    }
+
+    header h1 span {
+      color: var(--text);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 24px;
+      gap: 6px;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: var(--text-light);
+      color: var(--text-soft);
       font-weight: 600;
-      transition: color 0.25s;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
     }
 
     nav ul li a:hover {
-      color: var(--accent);
-      background: rgba(26, 188, 156, 0.12);
+      color: var(--teal);
+      background: var(--teal-glow);
     }
 
-    /* ---------- SECTIONS ---------- */
+    /* ---------- SECTION BASE ---------- */
     section {
-      padding: 100px 8% 60px;
+      padding: 110px 6% 70px;
       min-height: 100vh;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 1rem;
+      margin-bottom: 40px;
     }
 
     /* ---------- HOME ---------- */
     #home {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
       align-items: center;
       justify-content: center;
+      gap: 60px;
+      min-height: 100vh;
     }
 
-    .home-left {
+    .home-text {
       flex: 1;
       min-width: 300px;
-      max-width: 600px;
+      max-width: 580px;
     }
 
-    .home-left h2 {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-      color: var(--accent);
+    .home-text .greeting {
+      font-size: 1.1rem;
+      color: var(--teal);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .home-left p {
+    .home-text h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .home-text h2 span {
+      color: var(--teal);
+    }
+
+    .home-text p {
+      color: var(--text-soft);
       font-size: 1.05rem;
       margin-bottom: 18px;
-      line-height: 1.7;
-      color: var(--text-muted);
+      max-width: 540px;
     }
 
-    .about-box {
-      background: var(--card-bg);
-      padding: 20px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border-left: 4px solid var(--accent);
-    }
-
-    .about-box h3 {
-      margin-bottom: 8px;
-      color: var(--accent);
-    }
-
-    .home-right img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 25px rgba(26, 188, 156, 0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .home-right img:hover {
-      transform: scale(1.04);
-    }
-
-    /* ---------- SECTION NAV ---------- */
-    .section-nav {
+    .home-cta {
       display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin: 30px 0;
+      gap: 16px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
 
-    .section-nav a {
-      padding: 10px 22px;
-      background: var(--card-bg);
+    .btn-primary,
+    .btn-secondary {
+      padding: 13px 30px;
       border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
       text-decoration: none;
-      color: var(--text-light);
-      font-weight: 600;
-      transition: all 0.25s;
-      border: 1px solid rgba(26, 188, 156, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
     }
 
-    .section-nav a:hover {
-      background: var(--accent);
-      color: #0d1b2a;
-      transform: translateY(-2px);
+    .btn-primary {
+      background: var(--teal);
+      color: #0b1a2b;
+      box-shadow: 0 6px 20px rgba(26, 188, 156, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(26, 188, 156, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--teal);
+    }
+
+    .btn-secondary:hover {
+      background: var(--teal-glow);
+      transform: translateY(-3px);
+    }
+
+    .home-avatar {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home-avatar img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--teal);
+      box-shadow: 0 0 50px var(--teal-glow), 0 0 0 10px rgba(26, 188, 156, 0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .home-avatar img:hover {
+      transform: scale(1.04) rotate(2deg);
+      box-shadow: 0 0 70px rgba(26, 188, 156, 0.5), 0 0 0 14px rgba(26, 188, 156, 0.12);
     }
 
     /* ---------- ABOUT ---------- */
     #about {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      border-radius: 0;
+      background: var(--navy);
     }
 
-    .about-container {
+    .about-wrap {
       display: flex;
       flex-wrap: wrap;
+      gap: 50px;
       align-items: flex-start;
-      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .image-left {
+    .about-img {
       flex: 0 0 240px;
     }
 
-    .profile-img {
+    .about-img img {
       width: 240px;
       height: 240px;
       object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 25px rgba(26, 188, 156, 0.3);
-      transition: transform 0.3s ease;
+      border-radius: 20px;
+      border: 3px solid var(--teal);
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease;
     }
 
-    .profile-img:hover {
-      transform: scale(1.04);
+    .about-img img:hover {
+      transform: scale(1.03);
     }
 
-    .content-right {
+    .about-text {
       flex: 1;
-      min-width: 280px;
+      min-width: 300px;
     }
 
-    .content-right h2 {
-      font-size: 2rem;
-      color: var(--accent);
+    .about-text h3 {
+      font-size: 1.6rem;
+      color: var(--teal);
       margin-bottom: 16px;
     }
 
-    .content-right p {
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      line-height: 1.7;
+    .about-text p {
+      color: var(--text-soft);
+      margin-bottom: 16px;
+      font-size: 1rem;
     }
 
-    .about-content-box {
-      background: var(--card-bg);
-      padding: 20px;
-      margin-top: 20px;
-      border-left: 5px solid var(--accent);
+    .mission-box {
+      background: var(--card);
+      padding: 22px;
       border-radius: var(--radius);
+      border-left: 4px solid var(--teal);
+      margin: 24px 0;
       box-shadow: var(--shadow);
     }
 
-    .about-content-box h3 {
-      color: var(--accent);
+    .mission-box h4 {
+      color: var(--teal);
       margin-bottom: 8px;
+      font-size: 1.1rem;
     }
 
-    .about-btn {
-      margin-top: 18px;
-      padding: 10px 24px;
-      background: var(--accent);
-      color: #0d1b2a;
-      border: none;
+    .mission-box p {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .btn-fun {
+      margin-top: 8px;
+      padding: 11px 26px;
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--teal);
       border-radius: 30px;
-      cursor: pointer;
       font-weight: 700;
-      transition: background 0.25s;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.92rem;
     }
 
-    .about-btn:hover {
-      background: var(--accent-glow);
+    .btn-fun:hover {
+      background: var(--teal);
+      color: #0b1a2b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(26, 188, 156, 0.35);
     }
 
-    #dynamic-message {
-      margin-top: 12px;
+    #fun-message {
+      margin-top: 14px;
       font-style: italic;
-      color: var(--accent);
+      color: var(--teal);
+      font-size: 0.95rem;
+      min-height: 22px;
+      transition: opacity 0.3s ease;
     }
 
     /* ---------- SKILLS ---------- */
     #skills {
-      background: var(--bg-mid);
-      padding: 60px 8%;
-      text-align: center;
-      border-radius: 0;
+      background: linear-gradient(180deg, #0f2537 0%, #0b1a2b 100%);
     }
 
-    #skills h1 {
-      font-size: 2.4rem;
-      color: var(--accent);
-      margin-bottom: 40px;
-      letter-spacing: 1px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1150px;
+      margin: 0 auto;
     }
 
-    .skill-section {
-      background: var(--card-bg);
+    .skill-card {
+      background: var(--card);
       border-radius: var(--radius);
-      margin: 24px auto;
-      padding: 24px 28px;
-      max-width: 750px;
+      padding: 24px;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      text-align: left;
-      transition: transform 0.25s, box-shadow 0.25s;
-      border: 1px solid rgba(26, 188, 156, 0.15);
-    }
-
-    .skill-section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
-      border-color: var(--accent);
-    }
-
-    .skill-section h2 {
-      color: var(--accent);
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-
-    .skill-section p {
-      color: var(--text-muted);
-      line-height: 1.7;
-      font-size: 0.98rem;
-      margin-bottom: 8px;
-    }
-
-    .skill-section ul {
-      margin-left: 20px;
-      margin-top: 6px;
-      color: var(--text-muted);
-    }
-
-    .skill-section li {
-      margin-bottom: 4px;
-    }
-
-    /* Skill Bars */
-    .skill-bar {
+      transition: all 0.3s ease;
       position: relative;
-      background: #0f1a26;
-      border-radius: 20px;
-      height: 12px;
-      margin-top: 16px;
       overflow: hidden;
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
     }
 
-    .skill-fill {
+    .skill-card::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
-      width: var(--skill-level);
-      background: linear-gradient(90deg, #1abc9c, #16a085, #1abc9c);
-      box-shadow: 0 0 12px rgba(26, 188, 156, 0.7);
-      border-radius: 20px;
-      transition: width 1.5s ease-in-out;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .percentage {
-      position: absolute;
-      right: 10px;
-      top: -22px;
-      font-weight: bold;
-      color: var(--accent);
-      font-size: 0.85rem;
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      background: var(--card-hover);
+      border-color: rgba(26, 188, 156, 0.45);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .skill-head h3 {
+      font-size: 1.15rem;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-head h3 i {
+      font-size: 1.1rem;
+      color: var(--teal-dark);
+    }
+
+    .skill-percent {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--teal);
+      background: var(--teal-glow);
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .skill-card p {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+
+    .skill-tags span {
+      background: rgba(26, 188, 156, 0.1);
+      color: var(--teal);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(26, 188, 156, 0.2);
+      font-weight: 600;
+    }
+
+    .skill-bar {
+      position: relative;
+      height: 8px;
+      background: #0a1723;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: var(--level);
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark), #1abc9c);
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(26, 188, 156, 0.6);
+      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* ---------- EDUCATION ---------- */
     #education {
-      background: var(--bg-dark);
-      padding: 60px 8%;
-      text-align: center;
-    }
-
-    #education h1 {
-      font-size: 2.4rem;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    #education .subtitle {
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      font-size: 1.05em;
+      background: var(--navy);
     }
 
     .timeline {
       position: relative;
-      max-width: 900px;
+      max-width: 880px;
       margin: 0 auto;
+      padding: 20px 0;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--accent), #16a085);
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), transparent);
       top: 0;
       bottom: 0;
       left: 50%;
@@ -374,20 +475,20 @@
 
     .timeline-item {
       position: relative;
-      background: var(--card-bg);
-      border: 1px solid rgba(26, 188, 156, 0.3);
-      border-radius: var(--radius);
-      padding: 20px;
       width: 45%;
-      color: var(--text-light);
-      transition: 0.25s ease;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
       margin-bottom: 30px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
     .timeline-item:hover {
-      background: #253b4d;
-      transform: translateY(-4px);
-      border-color: var(--accent);
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(26, 188, 156, 0.5);
     }
 
     .timeline-item:nth-child(odd) {
@@ -401,255 +502,326 @@
     .timeline-item::after {
       content: "";
       position: absolute;
-      top: 25px;
+      top: 28px;
       width: 14px;
       height: 14px;
-      background: var(--accent);
+      background: var(--teal);
       border-radius: 50%;
-      border: 2px solid var(--bg-dark);
+      border: 3px solid var(--navy);
+      box-shadow: 0 0 12px var(--teal);
     }
 
     .timeline-item:nth-child(odd)::after {
-      right: -9px;
+      right: -8px;
     }
 
     .timeline-item:nth-child(even)::after {
-      left: -9px;
+      left: -8px;
     }
 
     .timeline-icon {
-      font-size: 1.5em;
-      color: var(--accent);
+      font-size: 1.4rem;
+      color: var(--teal);
       margin-bottom: 8px;
     }
 
     .timeline-date {
-      color: var(--accent);
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 1px;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
 
     .timeline-title {
-      font-size: 1.2em;
-      color: var(--text-light);
+      font-size: 1.15rem;
+      color: var(--text);
       margin-bottom: 8px;
     }
 
-    .timeline-content p {
-      color: var(--text-muted);
-      font-size: 0.95em;
+    .timeline-item p {
+      color: var(--text-soft);
+      font-size: 0.9rem;
       line-height: 1.6;
     }
 
     /* ---------- CONTACT ---------- */
     #contact {
+      background: linear-gradient(180deg, #0b1a2b 0%, #0f2537 100%);
+    }
+
+    .contact-wrap {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 50px;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
-      color: var(--text-light);
-      margin: 0 8% 60px;
+      gap: 40px;
+      max-width: 1050px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
-    .contact-left {
+    .contact-info {
       flex: 1;
-      min-width: 300px;
-      padding: 10px;
+      min-width: 280px;
     }
 
-    .contact-left h2 {
-      color: var(--accent);
+    .contact-info h3 {
+      color: var(--teal);
+      font-size: 1.4rem;
       margin-bottom: 12px;
     }
 
-    .contact-left p {
-      color: var(--text-muted);
-      margin-bottom: 18px;
+    .contact-info p {
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      font-size: 0.98rem;
     }
 
-    .contact-right img {
-      width: 100%;
-      max-width: 280px;
-      border-radius: var(--radius);
-      border: 3px solid var(--accent);
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
     }
 
-    form input, form textarea {
+    .contact-item i {
+      width: 38px;
+      height: 38px;
+      background: var(--teal-glow);
+      color: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #2a4055;
-      border-radius: 8px;
-      font-size: 15px;
-      background: #0f1a26;
-      color: var(--text-light);
+      padding: 13px 16px;
+      margin-bottom: 14px;
+      background: #0a1723;
+      border: 1px solid #1e3a4f;
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
       outline: none;
-      transition: border 0.25s;
+      transition: border 0.25s ease, box-shadow 0.25s ease;
     }
 
-    form input:focus, form textarea:focus {
-      border-color: var(--accent);
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15);
     }
 
-    .contact-btn {
-      background: var(--accent);
-      color: #0d1b2a;
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--teal);
+      color: #0b1a2b;
       border: none;
-      padding: 12px 28px;
-      border-radius: 30px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.98rem;
       cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      transition: background 0.25s;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
     }
 
-    .contact-btn:hover {
-      background: var(--accent-glow);
+    .submit-btn:hover {
+      background: var(--teal-dark);
+      box-shadow: 0 8px 24px rgba(26, 188, 156, 0.4);
+      transform: translateY(-2px);
     }
 
-    #confirmation {
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #form-status {
       margin-top: 12px;
+      font-size: 0.9rem;
       font-weight: 600;
-    }
-
-    .debug-info {
-      margin-top: 14px;
-      background: #0f1a26;
-      padding: 10px;
-      border-radius: 8px;
-      font-family: monospace;
-      font-size: 13px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      color: #f88;
+      min-height: 20px;
     }
 
     /* ---------- FOOTER ---------- */
     footer {
-      background: var(--bg-dark);
-      padding: 24px 8%;
+      background: #081320;
+      padding: 30px 6%;
       text-align: center;
-      border-top: 1px solid rgba(26, 188, 156, 0.2);
+      border-top: 1px solid var(--border);
     }
 
-    footer ul {
-      list-style: none;
+    footer .footer-links {
       display: flex;
       justify-content: center;
-      gap: 22px;
-      margin-bottom: 12px;
+      gap: 24px;
       flex-wrap: wrap;
+      margin-bottom: 16px;
     }
 
-    footer ul li a {
+    footer .footer-links a {
       text-decoration: none;
-      color: var(--text-light);
+      color: var(--text-soft);
       font-weight: 600;
-      transition: color 0.25s;
+      font-size: 0.9rem;
+      transition: color 0.25s ease;
     }
 
-    footer ul li a:hover {
-      color: var(--accent);
+    footer .footer-links a:hover {
+      color: var(--teal);
     }
 
     footer p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: #5a7185;
+      font-size: 0.85rem;
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      header {
-        padding: 14px 5%;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      nav ul {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      #home {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .section-nav {
-        flex-direction: column;
-        align-items: center;
+    @media (max-width: 900px) {
+      .home-text h2 {
+        font-size: 2.2rem;
       }
 
       .timeline::before {
-        left: 31px;
+        left: 20px;
       }
 
       .timeline-item {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 20px;
+        left: 0 !important;
+        padding-left: 60px;
       }
 
-      .timeline-item:nth-child(even) {
-        left: 0;
+      .timeline-item::after {
+        left: 14px !important;
+        right: auto !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 5%;
       }
 
-      .timeline-item:nth-child(odd)::after,
-      .timeline-item:nth-child(even)::after {
-        left: 24px;
-        right: auto;
+      nav ul {
+        gap: 4px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      .about-container {
+      nav ul li a {
+        font-size: 0.82rem;
+        padding: 6px 10px;
+      }
+
+      section {
+        padding: 130px 5% 50px;
+      }
+
+      #home {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .home-text .greeting,
+      .home-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .home-cta {
+        justify-content: center;
+      }
+
+      .home-avatar img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-wrap {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
 
-      .image-left {
-        margin-bottom: 20px;
+      .about-img img {
+        width: 200px;
+        height: 200px;
       }
 
-      #contact {
+      .contact-wrap {
+        padding: 24px;
         flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-        margin: 0 5% 40px;
-      }
-
-      .contact-right {
-        margin-top: 24px;
-      }
-
-      .skill-section {
-        padding: 18px;
       }
     }
 
     @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.4rem;
+      .home-text h2 {
+        font-size: 1.8rem;
       }
 
-      .home-left h2 {
-        font-size: 1.9rem;
+      .section-title {
+        font-size: 1.7rem;
       }
 
-      #skills h1,
-      #education h1 {
-        font-size: 1.9rem;
+      .skill-head h3 {
+        font-size: 1rem;
       }
+
+      .timeline-item {
+        padding: 16px 16px 16px 50px;
+      }
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.8s ease forwards;
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <h1>John - IT Expert</h1>
+    <h1>John<span>.dev</span></h1>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -663,47 +835,40 @@
 
   <!-- HOME -->
   <section id="home">
-    <div class="home-left">
-      <h2>Hello, I'm John</h2>
+    <div class="home-text fade-up">
+      <div class="greeting">IT Expert &amp; Full‑Stack Developer</div>
+      <h2>Hi, I'm <span>John</span>.<br>I build secure &amp; scalable digital solutions.</h2>
       <p>
         I'm an IT Expert with a passion for solving real-world problems through technology. My journey began with curiosity and evolved into a career filled with innovation, collaboration, and continuous learning.
       </p>
       <p>
-        Over the years, I've worked with startups, enterprises, and freelance clients to build secure, scalable systems. From cloud-native applications to network architecture, I thrive on turning complex challenges into elegant solutions.
+        I specialize in full-stack development, cybersecurity, and network architecture. I thrive on turning complex challenges into elegant, human-centered solutions.
       </p>
-      <p>
-        I believe technology should empower people. Whether I'm mentoring junior developers, speaking at tech events, or optimizing infrastructure, my goal is to make tech more human-centered and impactful.
-      </p>
-      <div class="about-box">
-        <h3>More About John</h3>
-        <p>
-          I specialize in full-stack development and cybersecurity. I'm also a lifelong learner who enjoys exploring new frameworks, contributing to open-source, and staying ahead of industry trends.
-        </p>
+      <div class="home-cta">
+        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+        <a href="#skills" class="btn-secondary"><i class="fas fa-code"></i> View Skills</a>
       </div>
     </div>
 
-    <div class="home-right">
-      <img src="IMG-20260801-WA0008.jpg" alt="John's Image" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'" />
+    <div class="home-avatar fade-up">
+      <img src="IMG-20260801-WA0008.jpg" alt="John - IT Expert"
+        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'" />
     </div>
   </section>
 
-  <!-- SECTION NAV -->
-  <div class="section-nav">
-    <a href="#about">About Me</a>
-    <a href="#skills">My Skills</a>
-    <a href="#education">My Education</a>
-    <a href="#contact">Contact Me</a>
-  </div>
-
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-container">
-      <div class="image-left">
-        <img src="IMG-20260801-WA0008.jpg" alt="John - IT Expert" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+    <div class="section-title">About Me</div>
+    <p class="section-sub">A little background on who I am and what drives me.</p>
+
+    <div class="about-wrap">
+      <div class="about-img fade-up">
+        <img src="IMG-20260801-WA0008.jpg" alt="John - IT Expert"
+          onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
       </div>
 
-      <div class="content-right">
-        <h2>About Me</h2>
+      <div class="about-text fade-up">
+        <h3>Turning ideas into reliable technology.</h3>
         <p>
           I'm John, an IT Expert driven by a relentless curiosity for how technology shapes our world. With over a decade of hands-on experience, I've navigated the evolving landscape of software engineering, cybersecurity, and network architecture.
         </p>
@@ -714,283 +879,215 @@
           Ever since I first discovered the power of technology, I've carried a dream deep within me—to create a game that transcends borders, cultures, and languages. Not just any game, but one that touches hearts, sparks joy, and becomes a source of connection for people around the world.
         </p>
 
-        <div class="about-content-box">
-          <h3>My Mission</h3>
+        <div class="mission-box">
+          <h4><i class="fas fa-bullseye"></i> My Mission</h4>
           <p>
             My mission is to bridge the gap between innovation and implementation. I help businesses and individuals harness the power of digital transformation through tailored solutions—from automating workflows to building secure, cloud-native applications. Every challenge is an opportunity to create something smarter, faster, and more human-centered.
           </p>
         </div>
 
-        <button class="about-btn" onclick="showMessage()">Click Me</button>
-        <p id="dynamic-message"></p>
+        <button class="btn-fun" id="funBtn"><i class="fas fa-lightbulb"></i> A Little Extra</button>
+        <p id="fun-message"></p>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS (detailed) -->
+  <!-- SKILLS -->
   <section id="skills">
-    <h1>My Technical Skills</h1>
+    <div class="section-title">Technical Skills</div>
+    <p class="section-sub">A detailed breakdown of what I bring to the table.</p>
 
-    <!-- HTML -->
-    <div class="skill-section">
-      <h2>HTML – 95%</h2>
-      <p>HTML is the backbone of every webpage I build. I use semantic tags to structure content clearly and accessibly, ensuring that my sites are both user-friendly and SEO-optimized.</p>
-      <p>From forms to multimedia integration, I understand how to leverage HTML5 features to create dynamic and interactive experiences. My markup is clean, well-organized, and scalable.</p>
-      <p>Whether I'm building landing pages or complex web apps, HTML is where I start. I treat it like the blueprint of every digital experience I craft.</p>
-      <ul>
-        <li>Semantic HTML5, accessibility (ARIA), and SEO best practices.</li>
-        <li>Forms, validation, multimedia, and canvas basics.</li>
-        <li>Clean, modular, and maintainable code structure.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 95%;"></div>
-        <span class="percentage">95%</span>
+    <div class="skills-grid">
+
+      <!-- HTML -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fab fa-html5"></i> HTML5</h3>
+          <span class="skill-percent">95%</span>
+        </div>
+        <p>Semantic, accessible, and SEO‑friendly markup. I build clean document structures that are easy to maintain and scale.</p>
+        <div class="skill-tags">
+          <span>Semantic Tags</span>
+          <span>ARIA</span>
+          <span>Forms</span>
+          <span>Media</span>
+          <span>SEO</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 95%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- CSS -->
-    <div class="skill-section">
-      <h2>CSS – 90%</h2>
-      <p>CSS is where I bring design to life. I specialize in responsive layouts, animations, and modern styling techniques using Flexbox, Grid, and media queries.</p>
-      <p>My stylesheets are modular and maintainable. I use variables, custom properties, and preprocessors when needed to keep things clean and scalable.</p>
-      <p>From sleek gradients to interactive hover effects, I use CSS to make interfaces not just functional—but delightful.</p>
-      <ul>
-        <li>Flexbox, CSS Grid, and responsive design (mobile-first).</li>
-        <li>Transitions, animations, and custom properties (variables).</li>
-        <li>Preprocessors (Sass) and modern layout techniques.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 90%;"></div>
-        <span class="percentage">90%</span>
+      <!-- CSS -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fab fa-css3-alt"></i> CSS3</h3>
+          <span class="skill-percent">90%</span>
+        </div>
+        <p>Responsive layouts, modern animations, and modular styling. I use Flexbox, Grid, and custom properties to bring designs to life.</p>
+        <div class="skill-tags">
+          <span>Flexbox</span>
+          <span>Grid</span>
+          <span>Responsive</span>
+          <span>Animations</span>
+          <span>Sass</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 90%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- JavaScript -->
-    <div class="skill-section">
-      <h2>JavaScript – 85%</h2>
-      <p>JavaScript is my tool for interactivity and logic. I use it to build dynamic interfaces, handle user input, and create seamless experiences across devices.</p>
-      <p>Whether it's DOM manipulation, API integration, or building components, I write clean, efficient, and modular JavaScript code.</p>
-      <p>I also work with frameworks like React and vanilla JS to create scalable applications that respond to real-time data and user behavior.</p>
-      <ul>
-        <li>ES6+, DOM manipulation, event handling, and fetch API.</li>
-        <li>React basics, component architecture, and state management.</li>
-        <li>Modular code, async/await, and error handling.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 85%;"></div>
-        <span class="percentage">85%</span>
+      <!-- JavaScript -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fab fa-js"></i> JavaScript</h3>
+          <span class="skill-percent">85%</span>
+        </div>
+        <p>Interactive interfaces, API integration, and dynamic logic. I write clean ES6+ code and work comfortably with React and vanilla JS.</p>
+        <div class="skill-tags">
+          <span>ES6+</span>
+          <span>DOM</span>
+          <span>Fetch API</span>
+          <span>React</span>
+          <span>Async/Await</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 85%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Networking -->
-    <div class="skill-section">
-      <h2>Networking – 88%</h2>
-      <p>I have solid hands-on experience in network design, configuration, and troubleshooting. I’m comfortable working with routers, switches, firewalls, and wireless controllers.</p>
-      <p>I understand TCP/IP, DNS, DHCP, VLANs, routing protocols (OSPF, EIGRP), and network security fundamentals. I also monitor network performance and ensure uptime.</p>
-      <ul>
-        <li>LAN/WAN setup, IP addressing, subnetting, and routing.</li>
-        <li>Firewall rules, VPN configuration, and network security.</li>
-        <li>Packet analysis (Wireshark) and troubleshooting.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 88%;"></div>
-        <span class="percentage">88%</span>
+      <!-- Networking -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fas fa-network-wired"></i> Networking</h3>
+          <span class="skill-percent">88%</span>
+        </div>
+        <p>Network design, configuration, and troubleshooting. Comfortable with routers, switches, firewalls, TCP/IP, DNS, DHCP, and VLANs.</p>
+        <div class="skill-tags">
+          <span>LAN/WAN</span>
+          <span>TCP/IP</span>
+          <span>Firewalls</span>
+          <span>VPN</span>
+          <span>Wireshark</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 88%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Computer Packages -->
-    <div class="skill-section">
-      <h2>Computer Packages (All) – 92%</h2>
-      <p>I have comprehensive mastery of computer packages including Microsoft Office (Word, Excel, PowerPoint, Access, Publisher), Google Workspace (Docs, Sheets, Slides, Forms, Drive), and basic accounting packages.</p>
-      <p>I use these tools daily for documentation, data analysis, presentations, and collaborative projects. I also train others on effective use of these packages.</p>
-      <ul>
-        <li>Microsoft Office Suite (Word, Excel, PowerPoint, Access, Outlook).</li>
-        <li>Google Workspace (Docs, Sheets, Slides, Forms, Drive, Gmail).</li>
-        <li>Basic graphic design (Canva, Photoshop basics) and PDF tools.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 92%;"></div>
-        <span class="percentage">92%</span>
+      <!-- Computer Packages -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fas fa-file-alt"></i> Computer Packages</h3>
+          <span class="skill-percent">92%</span>
+        </div>
+        <p>Full mastery of Microsoft Office and Google Workspace. I use these daily for documentation, analysis, presentations, and collaboration.</p>
+        <div class="skill-tags">
+          <span>Word</span>
+          <span>Excel</span>
+          <span>PowerPoint</span>
+          <span>Access</span>
+          <span>Google Workspace</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 92%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Computer Management -->
-    <div class="skill-section">
-      <h2>Computer Management – 87%</h2>
-      <p>I am experienced in computer management, including hardware diagnostics, OS installation (Windows, Linux), software deployment, user account management, and system optimization.</p>
-      <p>I ensure systems are secure, updated, and running efficiently. I also handle backup strategies, disk management, and basic server administration.</p>
-      <ul>
-        <li>Windows/Linux installation, configuration, and troubleshooting.</li>
-        <li>User account management, permissions, and group policies.</li>
-        <li>System backup, recovery, and performance tuning.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 87%;"></div>
-        <span class="percentage">87%</span>
+      <!-- Computer Management -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fas fa-desktop"></i> Computer Management</h3>
+          <span class="skill-percent">87%</span>
+        </div>
+        <p>Hardware diagnostics, OS installation, software deployment, user management, backups, and system optimization for Windows and Linux.</p>
+        <div class="skill-tags">
+          <span>Windows</span>
+          <span>Linux</span>
+          <span>Backups</span>
+          <span>User Accounts</span>
+          <span>Performance</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 87%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Google Tools -->
-    <div class="skill-section">
-      <h2>Google Tools – 90%</h2>
-      <p>I leverage Google tools extensively for productivity, collaboration, and data management. This includes Google Drive, Docs, Sheets, Slides, Forms, Gmail, Calendar, and Google Meet.</p>
-      <p>I use Google Sheets for data analysis and automation (App Script basics), and Google Forms for surveys and data collection. I also manage Google Workspace administration.</p>
-      <ul>
-        <li>Google Sheets: formulas, pivot tables, charts, and automation.</li>
-        <li>Google Docs & Slides: collaborative editing and templates.</li>
-        <li>Google Forms & Drive: data collection, storage, and sharing.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 90%;"></div>
-        <span class="percentage">90%</span>
+      <!-- Google Tools -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fab fa-google"></i> Google Tools</h3>
+          <span class="skill-percent">90%</span>
+        </div>
+        <p>Leveraging Google Drive, Docs, Sheets, Slides, Forms, and Gmail for productivity, automation, and data management.</p>
+        <div class="skill-tags">
+          <span>Sheets</span>
+          <span>Docs</span>
+          <span>Forms</span>
+          <span>Drive</span>
+          <span>App Script</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 90%;"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Data Entry -->
-    <div class="skill-section">
-      <h2>Data Entry – 94%</h2>
-      <p>I am highly proficient in data entry with exceptional speed and accuracy. I handle large volumes of data, perform validation, and ensure data integrity across various platforms.</p>
-      <p>I use tools like Excel, Google Sheets, and specialized data entry software. I also have experience in data cleaning, formatting, and migration.</p>
-      <ul>
-        <li>Fast and accurate typing (60+ WPM) with high attention to detail.</li>
-        <li>Data validation, cleaning, and transformation.</li>
-        <li>Proficiency in Excel, Google Sheets, and CRM data entry.</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-fill" style="--skill-level: 94%;"></div>
-        <span class="percentage">94%</span>
+      <!-- Data Entry -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fas fa-keyboard"></i> Data Entry</h3>
+          <span class="skill-percent">94%</span>
+        </div>
+        <p>Fast, accurate data entry with strong attention to detail. Experienced in validation, cleaning, and migrating large datasets.</p>
+        <div class="skill-tags">
+          <span>60+ WPM</span>
+          <span>Validation</span>
+          <span>Cleaning</span>
+          <span>Excel</span>
+          <span>CRM</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 94%;"></div>
+        </div>
       </div>
-    </div>
 
+      <!-- Python (bonus) -->
+      <div class="skill-card fade-up">
+        <div class="skill-head">
+          <h3><i class="fab fa-python"></i> Python</h3>
+          <span class="skill-percent">78%</span>
+        </div>
+        <p>Scripting and automation for data processing, web scraping, and backend tasks. Comfortable with Flask and basic data analysis.</p>
+        <div class="skill-tags">
+          <span>Automation</span>
+          <span>Flask</span>
+          <span>Scripting</span>
+          <span>Pandas</span>
+          <span>APIs</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="--level: 78%;"></div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- EDUCATION -->
   <section id="education">
-    <h1>My Educational Journey</h1>
-    <p class="subtitle">A timeline of my academic achievements and learning path.</p>
+    <div class="section-title">Education &amp; Training</div>
+    <p class="section-sub">A timeline of my academic and professional learning journey.</p>
 
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item fade-up">
         <div class="timeline-icon"><i class="fas fa-pencil-alt"></i></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2006 - 2019</div>
-          <h3 class="timeline-title">Primary Education</h3>
-          <p>Completed primary education at Joyspring Academy and Umoja Academy, developing literacy, numeracy, and leadership skills.</p>
-        </div>
+        <div class="timeline-date">2006 – 2019</div>
+        <h3 class="timeline-title">Primary Education</h3>
+        <p>Completed primary education at Joyspring Academy and Umoja Academy, developing literacy, numeracy, and leadership skills.</p>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item fade-up">
         <div class="timeline-icon"><i class="fas fa-book"></i></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2019 - 2023</div>
-          <h3 class="timeline-title">Secondary Education</h3>
-          <p>Attended Njoro Boys High School, where I enhanced academic performance and leadership through extracurricular activities.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-laptop-code"></i></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2025</div>
-          <h3 class="timeline-title">Institute for Technology Studies</h3>
-          <p>Completed a 12-month program in Web Design and Programming, specializing in front-end development and networking.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2025</div>
-          <h3 class="timeline-title">Cybersecurity & Ethical Hacking</h3>
-          <p>Completed an intensive course on cybersecurity principles, penetration testing, and network defense.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-left">
-      <h2>Contact Me</h2>
-      <p>If you'd like to get in touch, feel free to reach out using the form below.</p>
-
-      <form id="contact-form">
-        <input type="text" id="name" name="user_name" placeholder="Your Name" required>
-        <input type="email" id="email" name="user_email" placeholder="Your Email" required>
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" id="submit-btn" class="contact-btn">
-          <span class="btn-text">Send Message</span>
-        </button>
-      </form>
-
-      <p id="confirmation"></p>
-      <div id="debug-info" class="debug-info" style="display: none;"></div>
-    </div>
-
-    <div class="contact-right">
-      <img src="IMG-20260801-WA0008.jpg" alt="John - IT Expert"
-        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
-    </div>
-  </section>
-
-  <footer>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <p>&copy; 2025 John | IT Expert Portfolio</p>
-  </footer>
-
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <script>
-    // Initialize EmailJS
-    (function() {
-      emailjs.init({
-        publicKey: "aeuZbpVdUxwQ6vquJ"
-      });
-    })();
-
-    // Form submission
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const confirmation = document.getElementById("confirmation");
-      const submitBtn = document.getElementById("submit-btn");
-      confirmation.style.color = "#b0c4d8";
-      confirmation.textContent = "Sending...";
-
-      submitBtn.disabled = true;
-
-      emailjs.sendForm("service_ef9q87r", "template_vwf05yh", this)
-        .then(() => {
-          confirmation.textContent = "✅ Message sent successfully!";
-          confirmation.style.color = "#1abc9c";
-          submitBtn.disabled = false;
-          document.getElementById("contact-form").reset();
-        }, (error) => {
-          console.error("Error:", error);
-          confirmation.textContent = "❌ Failed to send message. Please try again.";
-          confirmation.style.color = "#e74c3c";
-          submitBtn.disabled = false;
-
-          document.getElementById("debug-info").style.display = "block";
-          document.getElementById("debug-info").textContent = JSON.stringify(error, null, 2);
-        });
-    });
-
-    // Random message
-    function showMessage() {
-      const messages = [
-        "Thanks for your interest in my work!",
-        "I'm passionate about creating impactful technology solutions.",
-        "Feel free to reach out if you'd like to collaborate.",
-        "Technology is my canvas, and code is my paintbrush.",
-        "Always learning, always growing!"
-      ];
-      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      document.getElementById('dynamic-message').text
+        <div class="timeline-date">2019 – 2023</div>
+        <h3 class="timeline-title">Secondary Education</h3>
+        <p>Attended
